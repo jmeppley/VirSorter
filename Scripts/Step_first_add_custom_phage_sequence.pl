@@ -26,7 +26,7 @@ my $path_to_muscle      = which("muscle")         or die "No muscle\n";
 my $path_to_hmmbuild    = which("hmmbuild")       or die "No hmmbuild\n";
 my $path_to_hmmpress    = which("hmmpress")       or die "No hmmpress\n";
 my $path_hmmsearch      = which("hmmsearch")      or die "No hmmsearch\n";
-my $path_to_mga         = which("mga_linux_ia64") or die "No mga\n";
+my $path_to_mga       = which('mga') or die "Cannot find metagene-annotator binary: 'mga'\n";
 my $MCX_LOAD            = which("mcxload")        or die "No mcxloafd\n";
 my $MCL                 = which("mcl")            or die "No mcl\n";
 
