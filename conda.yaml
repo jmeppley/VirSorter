@@ -1,0 +1,11 @@
+channels:
+        - bioconda
+        - conda-forge
+        - jmeppley
+dependencies:
+        - perl-bioperl
+        - blast
+        - mcl
+        - metagene-annotator
+        - hmmer
+        - muscle

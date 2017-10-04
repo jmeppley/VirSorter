@@ -79,6 +79,33 @@ A sample "run" command to use the current working directory for input/output:
     $ docker run --rm --volumes-from virsorter-data -v $(pwd):/de-app-work \
     -w /de-app-work kyclark/virsorter --fna Mic_1.fna --db 1
 
+# install with conda
+
+## Download database
+This assumes you have a cyverse account and irods installed anad configured:
+
+    $ iinit
+    $ iget /iplant/home/shared/imicrobe/VirSorter/virsorter-data.tar.gz
+    $ tar -zxvf virsorter-data.tar.gz
+    $ DATA_DIR=$(pwd)/virsorter-data
+
+## Clone 
+Make a local copy of the code and navigate into the new folder:
+
+    $ git clone https://github.com/jmeppley/VirSorter
+    $ cd VirSorter
+
+## create virtual env with dependencies
+Use conda to install the dependencies and activate them:
+
+    $ conda env create -p $(pwd)/env -f conda.yaml
+    $ source activate $(pwd)/env
+
+## run!
+Hmmer tends to max out at 4 threads, so I use that as the setting. YMMV.
+
+    $ perl wrapper_phage_contigs_sorter_iPlant.pl -f ${CONTIGS_FASTA} --wdir ${OUTPUT_DIR} --data-dir ${DATA_DIR} --ncpu 4
+
 # Authors
 
 Simon Roux <roux.8@osu.edu> is the author of Virsorter
