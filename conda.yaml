@@ -4,6 +4,7 @@ channels:
         - jmeppley
 dependencies:
         - perl-bioperl
+        - perl-parallel-forkmanager
         - blast
         - mcl
         - metagene-annotator
