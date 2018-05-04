@@ -431,12 +431,12 @@ rule step_5:
     output:
         phage=expand(os.path.join(wdir,
                                   'Predicted_viral_sequences',
-                                  "_cat-{N}.fasta"),
-                     N=[1,2,3]),
+                                  "{cd}_cat-{N}.fasta"),
+                     N=[1,2,3], cd=code_dataset),
         prophage=expand(os.path.join(wdir,
                                      'Predicted_viral_sequences',
-                                     "_prophage_cat-{N}.fasta"),
-                        N=[4,5,6])
+                                     "{cd}_prophage_cat-{N}.fasta"),
+                        N=[4,5,6], cd=code_dataset)
     log: os.path.join(log_dir, 'step_5.out')
     shell: "{script_generate_output} {code_dataset} {wdir} > {log} 2>&1 "
 
